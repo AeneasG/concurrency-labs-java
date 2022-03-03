@@ -36,7 +36,7 @@ public class NumberGetter {
         Date dateAfter = new Date();
         long difference = dateAfter.getTime() - dateBefore.getTime();
 
-        double diffSeconds = difference / 60;
+        double diffSeconds = difference / 1000;
 
         System.out.println("Needed " + diffSeconds + " seconds to find that between " + this.x + " and " + this.y + ", " + this.currentHighestNumber + " has the largest number of divisors with a total of " + this.nbOfDivisorsForHighestNumber);
     }
