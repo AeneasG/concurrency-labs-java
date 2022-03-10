@@ -36,3 +36,7 @@ This implies, that the buffer should be empty in the end.
 
 The SharedBufferRunner comes with the main method where the parameters can be passed. Note that the program should be executed with
 ``java SharedBufferRunner T N``
+
+## Exercise 1.4
+
+![img.png](exercise4/img.png)
