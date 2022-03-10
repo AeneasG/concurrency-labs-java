@@ -2,8 +2,8 @@ package assignments.assignment1.exercise2;
 
 public class SynchronizedCounter {
 
-    Integer max;
-    Integer counter;
+    private Integer max;
+    private Integer counter;
 
     public SynchronizedCounter(Integer max, Integer start) {
         this.max = max;

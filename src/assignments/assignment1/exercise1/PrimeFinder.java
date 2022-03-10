@@ -2,8 +2,8 @@ package assignments.assignment1.exercise1;
 
 public class PrimeFinder implements Runnable {
 
-    Integer from;
-    Integer to;
+    private Integer from;
+    private Integer to;
 
     public PrimeFinder(Integer from, Integer to) {
         this.from = from;
