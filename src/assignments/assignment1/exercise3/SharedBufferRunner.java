@@ -38,5 +38,7 @@ public class SharedBufferRunner {
                 threads[i].join();
             } catch (InterruptedException e){}
         }
+
+        System.out.println("Size of the buffer is " + sharedBuffer.getCurrentSize() + " (should equal to 0)");
     }
 }

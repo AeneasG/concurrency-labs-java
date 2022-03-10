@@ -7,8 +7,8 @@ import java.nio.BufferUnderflowException;
  * If the buffer is empty, this does not count
  */
 public class Consumer implements Runnable{
-    int consumeTimes;
-    SharedBuffer<Integer> sharedBuffer;
+    private int consumeTimes;
+    private SharedBuffer<Integer> sharedBuffer;
 
     public Consumer(int consumeTimes, SharedBuffer<Integer> sharedBuffer) {
         this.consumeTimes = consumeTimes;

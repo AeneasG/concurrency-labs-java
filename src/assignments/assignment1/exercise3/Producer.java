@@ -9,8 +9,8 @@ import java.nio.BufferOverflowException;
  */
 public class Producer implements Runnable {
 
-    int produceIterations;
-    SharedBuffer<Integer> sharedBuffer;
+    private int produceIterations;
+    private SharedBuffer<Integer> sharedBuffer;
 
     public Producer(int produceIterations, SharedBuffer<Integer> sharedBuffer) {
         this.produceIterations = produceIterations;

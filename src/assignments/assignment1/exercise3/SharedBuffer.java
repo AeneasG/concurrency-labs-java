@@ -11,11 +11,11 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class SharedBuffer<T> {
 
-    final ReentrantLock lock;
-    T[] buffer;
-    int head;
-    int tail;
-    int currentSize;
+    private final ReentrantLock lock;
+    private T[] buffer;
+    private int head;
+    private int tail;
+    private int currentSize;
 
     public SharedBuffer(Class<T> clazz, int bufferSize) {
         this.buffer = (T[]) Array.newInstance(clazz, bufferSize);
@@ -57,5 +57,9 @@ public class SharedBuffer<T> {
         } finally {
             this.lock.unlock();
         }
+    }
+
+    public int getCurrentSize() {
+        return this.currentSize;
     }
 }
