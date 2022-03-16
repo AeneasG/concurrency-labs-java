@@ -4,6 +4,11 @@ import java.util.Date;
 
 public class PrimeFinderMain {
 
+    /**
+     * start the Primefinder with
+     * java PrimeFinderMain T N
+     * where T are the number of threads and N is the number until where primes should be searched
+     */
     public static void main(String[] args){
         if(args.length < 2) {
             throw new RuntimeException("Please provide at least 2 integer arguments");

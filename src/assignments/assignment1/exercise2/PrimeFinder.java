@@ -1,5 +1,12 @@
 package assignments.assignment1.exercise2;
 
+/**
+ * This class implements the Runnable interface
+ * When starting, it takes a number from a given counter source, checks whether it is prime
+ * and if true, prints this number
+ *
+ * It will finish running, once the counter returns 0 only
+ */
 public class PrimeFinder implements Runnable {
 
     private SynchronizedCounter counter;

@@ -1,11 +1,15 @@
 package assignments.assignment1.exercise1;
 
+/**
+ * Class that checks all numbers within a given range (given by "from" to "to")
+ * whether a number is prime and if so, prints it
+ */
 public class PrimeFinder implements Runnable {
 
-    private Integer from;
-    private Integer to;
+    private int from;
+    private int to;
 
-    public PrimeFinder(Integer from, Integer to) {
+    public PrimeFinder(int from, int to) {
         this.from = from;
         this.to = to;
     }
