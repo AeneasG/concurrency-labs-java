@@ -1,4 +1,4 @@
-package assignments.assignment1.exercise2;
+package assignment1.exercise2;
 
 /**
  * synchronized counter that will return increase the counter beginning with given "start" Integer

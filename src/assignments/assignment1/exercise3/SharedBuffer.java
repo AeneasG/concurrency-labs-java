@@ -1,4 +1,4 @@
-package assignments.assignment1.exercise3;
+package assignment1.exercise3;
 
 import java.lang.reflect.Array;
 import java.nio.BufferOverflowException;

@@ -1,4 +1,4 @@
-package assignments.assignment1.exercise2;
+package assignment1.exercise2;
 
 import java.util.Date;
 
@@ -48,9 +48,7 @@ public class PrimeFinderMain {
         Date dateAfter = new Date();
         long difference = dateAfter.getTime() - dateBefore.getTime();
 
-        double diffSeconds = difference / 1000;
-
-        System.out.println("Needed " + diffSeconds + " seconds to find all primes up to " + N);
+        System.out.println("Needed " + difference + " ms to find all primes up to " + N);
     }
 
 }

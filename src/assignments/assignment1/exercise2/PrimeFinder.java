@@ -1,4 +1,4 @@
-package assignments.assignment1.exercise2;
+package assignment1.exercise2;
 
 /**
  * This class implements the Runnable interface

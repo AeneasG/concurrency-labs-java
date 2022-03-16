@@ -1,4 +1,4 @@
-package assignments.assignment1.exercise3;
+package assignment1.exercise3;
 
 /**
  * Runner Class to setup the required producer and consumers

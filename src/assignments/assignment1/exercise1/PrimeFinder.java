@@ -1,4 +1,4 @@
-package assignments.assignment1.exercise1;
+package assignment1.exercise1;
 
 /**
  * Class that checks all numbers within a given range (given by "from" to "to")
