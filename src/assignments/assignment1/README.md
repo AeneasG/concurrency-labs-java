@@ -1,5 +1,6 @@
 # Assignment 1, Aeneas Grüter, 16-116-352
 ## Exercise 1.1
+#### Execution Times
 | N | T   | Time [s] |
 |---|-----|----------|
 | 10'000'000 | 1   | 4.8      |
@@ -14,6 +15,7 @@
 | 100'000'000 | 16  | 23.0     |
 
 ## Exercise 1.2
+#### Execution Times
 | N | T   | Time [s] |
 |---|-----|----------|
 | 10'000'000 | 1   | 4.9      |
@@ -38,5 +40,33 @@ The SharedBufferRunner comes with the main method where the parameters can be pa
 ``java SharedBufferRunner T N``
 
 ## Exercise 1.4
+We need to decide for a particular application between the following two processors
 
-![img.png](exercise4/img.png)
+
+* Uniprocessor with 5 Zillion Instructions per second
+* Multiprocessor with 10 cores with 1 Zillion Instructions per second each
+
+Amdahl's law states:
+
+![img.png](exercise4/formula_1.png)
+
+where
+* s denotes the speedup
+* p denotes the fraction of code, that can be executed in parallel
+* n denotes the number of processors in the multiprocessor
+
+To determine which one is the faster processor for a particular application, we need to calculate the speedup when running this program on both of the two processes. This can be achieved when the value p for a particular application is known. If the speedup is more than 1, the multiprocessor will execute the program faster, otherwise the single processor.
+
+As the uniprocessor can execute 5 times more instructions per time unit, the speedup must be divided by factor 5.
+
+![img.png](exercise4/formula_2.png)
+
+We solve then the equation for p:
+
+![img.png](exercise4/formula_3.png)
+
+We set s = 1, n = 10 and obtain:
+
+![img.png](exercise4/formula_4.png)
+
+This means, if p is larger or equal to 88.8 %, the multiprocessor should be bought because there is an actual performance gain. Otherwise, the concrete application will run faster on the uniprocessor and this should be the one to buy. 
