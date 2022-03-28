@@ -20,7 +20,7 @@ public class RWLockTester {
 
         @Override
         public void run() {
-            if (id == 2) {
+            if (id == 0) {
                 for (long l = 0; l < n; l++) {
                     lock.lockWrite();
                     counter++;
