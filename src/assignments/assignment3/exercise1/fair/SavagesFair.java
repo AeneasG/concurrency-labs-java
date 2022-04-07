@@ -1,26 +1,32 @@
-package assignment3.exercise1.basic;
+package assignment3.exercise1.fair;
 
 import assignment3.exercise1.Cook;
 import assignment3.exercise1.Pot;
 
 import java.util.Date;
 
-public class SavagesBasic {
+/**
+ * Idea: reuse the shared buffer from Assignment 1, Ex. 3; each savage puts himself in the list and spins on the head of the queue
+ *
+ */
+public class SavagesFair {
 
     public static void main(String args[]){
-        if(args.length < 2) {
-            throw new RuntimeException("Please provide at least 2 integer arguments");
+        if(args.length < 3) {
+            throw new RuntimeException("Please provide at least 3 integer arguments");
         }
         int nbOfSavages;
         int potCapacity;
+        int maxConsumations;
         try {
             nbOfSavages = Integer.parseInt(args[0]);
             potCapacity = Integer.parseInt(args[1]);
+            maxConsumations = Integer.parseInt(args[2]);
         } catch (NumberFormatException e){
             throw new RuntimeException("Please provide Integer arguments");
         }
 
-        if(nbOfSavages < 1 || potCapacity < 2){
+        if(nbOfSavages < 1 || potCapacity < 2 || maxConsumations < 10){
             throw new RuntimeException("Invalid Arguments!");
         }
 
@@ -28,12 +34,13 @@ public class SavagesBasic {
 
         Date dateBefore = new Date();
 
+        FifoQueue fifoQueue = new FifoQueue(nbOfSavages);
         Pot pot = new Pot();
 
         Cook cook = new Cook(nbOfSavages, potCapacity, pot);
 
         for(int i=0;i<nbOfSavages;i++){
-            threads[i] = new Thread(new Savage(i, pot, cook));
+            threads[i] = new Thread(new Savage(i, pot, cook, fifoQueue, maxConsumations));
         }
 
         for(int i=0;i<nbOfSavages;i++){

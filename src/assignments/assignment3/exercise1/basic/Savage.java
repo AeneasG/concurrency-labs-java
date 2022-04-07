@@ -1,5 +1,8 @@
 package assignment3.exercise1.basic;
 
+import assignment3.exercise1.Cook;
+import assignment3.exercise1.Pot;
+
 /**
  * Savage tries to eat one portion of the pot
  * if the pot is empty, he tries to inform the cook and orders the pot to be refilled

@@ -69,4 +69,4 @@ We set s = 1, n = 10 and obtain:
 
 ![img.png](exercise4/formula_4.png)
 
-This means, if p is larger or equal to 88.8 %, the multiprocessor should be bought because there is an actual performance gain. Otherwise, the concrete application will run faster on the uniprocessor and this should be the one to buy. 
+This means, if p is larger or equal to 88.8 %, the multiprocessor is faster and should be bought. Otherwise, the concrete application will run faster on the uniprocessor and this one should be bought. 

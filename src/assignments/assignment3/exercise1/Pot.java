@@ -1,4 +1,4 @@
-package assignment3.exercise1.basic;
+package assignment3.exercise1;
 
 /**
  * shared resource Pot
@@ -31,8 +31,9 @@ public class Pot {
      * refills the pot with the given number of portions
      * @param nbPortions    int, the number of portions that are in the pot
      */
-    public void refill(int nbPortions) {
+    public synchronized void refill(int nbPortions) {
         this.nbOfPortions = nbPortions;
+        this.lockHelper(false);
     }
 
     /**
@@ -41,13 +42,6 @@ public class Pot {
      */
     public boolean isRefilling() {
         return this.refillLock;
-    }
-
-    /**
-     * method to release the lock of refilling
-     */
-    public void finishRefill() {
-        this.lockHelper(false);
     }
 
     /**
