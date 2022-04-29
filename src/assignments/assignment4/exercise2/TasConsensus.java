@@ -4,11 +4,14 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class TasConsensus implements IConsensus{
 
+    private class NullObject {
+    }
+
     AtomicReference<Object> decision;
     Object nullObject;
 
     public TasConsensus() {
-        this.nullObject = "";
+        this.nullObject = new NullObject();
         this.decision = new AtomicReference<Object>(this.nullObject);
     }
 
