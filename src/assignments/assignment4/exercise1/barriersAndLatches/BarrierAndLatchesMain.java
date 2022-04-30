@@ -31,7 +31,11 @@ public class BarrierAndLatchesMain {
 
 
         Queue<Integer> queue = new ConcurrentLinkedQueue<Integer>();
+
+        // any producer must wait for T threads to join (including himself) before any producer can begin to produce
         CyclicBarrier cyclicBarrier = new CyclicBarrier(T);
+
+        // any consumer must wait for T producers to finish their job before any can begin to consume
         CountDownLatch countDownLatch = new CountDownLatch(T);
 
         Date dateBefore = new Date();

@@ -25,15 +25,19 @@ public class QueueConsumerProducerWithBarrier implements Runnable {
     public void run() {
         if (this.isProducer) {
             try {
+                // wait for all producers to come here in order to begin producing
                 cyclicBarrier.await();
                 for (int i = 0; i < this.nbOfIterations; i++) {
                     this.list.add(i);
                 }
-                countDownLatch.countDown();
             } catch (Exception e) {
+            } finally {
+                // this producer finished the job; countDown the countDownLatch such that after the last producer the consumers can begin
+                countDownLatch.countDown();
             }
         } else {
             try {
+                // wait until all producers have finished producing their values
                 countDownLatch.await();
                 int nbOfFailures = 0;
                 int failureThreshold = 2 * this.nbOfIterations;
@@ -49,9 +53,7 @@ public class QueueConsumerProducerWithBarrier implements Runnable {
                         }
                     }
                 }
-            } catch (Exception e){
-
-            }
+            } catch (Exception e){}
         }
     }
 }
