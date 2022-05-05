@@ -42,4 +42,17 @@ public class TasConsensus implements IConsensus{
 `````
 It uses a private class NullObject, creates a new reference on such an object and stores this in the atomic object reference called ``decision``. It is important that the ``deciscion`` initially holds a private null value which no other process is able to propose to propose (by invoking decide). The idea is that if some process invokes decide, he will try to set his own value as ``decision``. In the end, the result of ``compareAndSet`` does not matter, because the decision does not change after the first successful swap and `decision` will hold the correct reference at any time after `compareAndSet` has been invoked the first time.
 
-The LockConsensus from the exercise, a shared Consensus interface, and a tester to test both implementations of Consensus are provided. The tester first uses the LockConsensus and after the TasConsensus to decide for a value among N processes, where N is a input to the program. 
+The LockConsensus from the exercise, a shared Consensus interface, and a tester to test both implementations of Consensus are provided. The tester first uses the LockConsensus and after the TasConsensus to decide for a value among N processes, where N is a input to the program.
+
+## Exercise 3
+#### Execution Times
+| N    | Time [ms] |
+|------|-----------|
+| 100  | 82        |
+| 1000 | 5892      |
+| 3000 | 136'296   |
+For the sake of interest I executed also one multiplication with `N = 3000` in order to explore the cubic increase in runtime which is not so good visible with the increase from `N = 100` to `N = 1000`.
+
+Note: The values of the matrices A and B are filled with random values between 0 and 100.
+
+We can see, that the increase in runtime with increasing N is as we have seen / derived in the lecture.
