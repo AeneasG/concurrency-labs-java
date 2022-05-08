@@ -5,6 +5,14 @@ import assignment4.exercise1.QueueConsumerProducer;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/**
+ * This program tests the concurrent access to a concurrent linked queue from the java.util.concurrent package
+ * It starts T producer and T consumer threads
+ *
+ * The program takes two parameters
+ * - T: Integer, number of producers / consumers
+ * - N: Number of writes (for a producer) / reads (for a consumer)
+ */
 public class ConcurrentMain {
 
     public static void main(String[] args){
@@ -49,6 +57,6 @@ public class ConcurrentMain {
         Date dateAfter = new Date();
         long difference = dateAfter.getTime() - dateBefore.getTime();
 
-        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should be empty; list.isEmpty? " + queue.isEmpty());
+        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should now be empty -> isEmtpy? " + queue.isEmpty());
     }
 }

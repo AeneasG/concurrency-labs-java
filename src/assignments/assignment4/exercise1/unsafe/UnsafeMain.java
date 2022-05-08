@@ -5,6 +5,13 @@ import assignment4.exercise1.ConsumerProducer;
 import java.util.Date;
 import java.util.LinkedList;
 
+/**
+ * This program tests the concurrent access to a non-synchronized linked list by starting T producer and T consumer threads
+ * The program takes two parameters
+ *
+ * - T: Integer, number of producers / consumers
+ * - N: Number of writes (for a producer) / reads (for a consumer)
+ */
 public class UnsafeMain {
 
     public static void main(String[] args){
@@ -49,6 +56,6 @@ public class UnsafeMain {
         Date dateAfter = new Date();
         long difference = dateAfter.getTime() - dateBefore.getTime();
 
-        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should be empty; list.isEmpty? " + list.isEmpty());
+        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should now be empty -> isEmtpy? " + list.isEmpty());
     }
 }

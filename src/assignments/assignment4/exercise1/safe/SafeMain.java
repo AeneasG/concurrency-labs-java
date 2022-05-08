@@ -7,6 +7,15 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This program tests the concurrent access to a linked list which is synchronized using the Collections synchronization
+ * presented by https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
+ * It starts T producer and T consumer threads
+ *
+ * The program takes two parameters
+ * - T: Integer, number of producers / consumers
+ * - N: Number of writes (for a producer) / reads (for a consumer)
+ */
 public class SafeMain {
 
     public static void main(String[] args){
@@ -28,7 +37,8 @@ public class SafeMain {
 
         Thread[] threads = new Thread[2*T];
 
-
+        // synchronize a linked list according to
+        // https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
         List<Integer> list = Collections.synchronizedList(new LinkedList<Integer>());
 
         Date dateBefore = new Date();
@@ -51,6 +61,6 @@ public class SafeMain {
         Date dateAfter = new Date();
         long difference = dateAfter.getTime() - dateBefore.getTime();
 
-        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should be empty; list.isEmpty? " + list.isEmpty());
+        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should now be empty -> isEmtpy? " + list.isEmpty());
     }
 }

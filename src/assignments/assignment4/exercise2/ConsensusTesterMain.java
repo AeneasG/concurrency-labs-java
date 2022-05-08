@@ -2,7 +2,16 @@ package assignment4.exercise2;
 
 import java.util.concurrent.CyclicBarrier;
 
-public class ConsensusTester {
+/**
+ * This program tests two types of consensus, the LockConsensus and the TasConsensus
+ * To enhance concurrency and test the two consensus implementations a cyclicBarrier is used
+ * in order to enforce that all processes invoke the "decide" method of the Consensus impelmentation
+ * at the same time
+ *
+ * It takes one parameter:
+ * - T: Integer, number of processes proposing a value
+ */
+public class ConsensusTesterMain {
 
     public static void main(String[] args){
         if(args.length < 1) {
@@ -27,7 +36,7 @@ public class ConsensusTester {
         IConsensus consensus = new LockConsensus();
 
         for(int i=0;i<T;i++){
-            threads[i] = new Thread(new LockConsensusTester(consensus, i, cyclicBarrier));
+            threads[i] = new Thread(new ConsensusTesterRunnable(consensus, i, cyclicBarrier));
         }
 
         for(int i=0;i<T;i++){
@@ -47,7 +56,7 @@ public class ConsensusTester {
         consensus = new TasConsensus();
 
         for(int i=0;i<T;i++){
-            threads[i] = new Thread(new LockConsensusTester(consensus, i, cyclicBarrier));
+            threads[i] = new Thread(new ConsensusTesterRunnable(consensus, i, cyclicBarrier));
         }
 
         for(int i=0;i<T;i++){

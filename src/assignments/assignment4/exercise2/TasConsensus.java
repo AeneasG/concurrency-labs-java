@@ -2,6 +2,9 @@ package assignment4.exercise2;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Consensus implementation using TestAndSet
+ */
 public class TasConsensus implements IConsensus{
 
     private class NullObject {

@@ -6,6 +6,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * This program tests the multiplication of two matrices using a CachedThreadPool
+ *
+ * It takes one parameter:
+ * - N: Integer, size of matrix in one dimension; the resulting matrix will be N x N
+ */
 public class MatrixMultiplicationMain {
     static ExecutorService executorService = Executors.newCachedThreadPool();
 

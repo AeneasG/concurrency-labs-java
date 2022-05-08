@@ -48,7 +48,7 @@ public class QueueConsumerProducerWithBarrier implements Runnable {
                         nbOfFailures++;
                         i--;
                         if (nbOfFailures > failureThreshold) {
-                            System.out.println("Give up after too many failures in iteration " + i + " and nbOfFailures: " + nbOfFailures);
+                            System.out.println("Give up after too many failures after " + i + " reads and " + nbOfFailures + " failures");
                             break;
                         }
                     }

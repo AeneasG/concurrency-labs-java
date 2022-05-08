@@ -8,6 +8,16 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
+/**
+ * This program tests the concurrent access to a concurrent linked queue from the java.util.concurrent package
+ * It uses a CyclicBarrier to let all producers start at the same time and a CountDownLatch to let consumers
+ * start consume only after all producers finished producing.
+ * It starts T producer and T consumer threads
+ *
+ * The program takes two parameters
+ * - T: Integer, number of producers / consumers
+ * - N: Number of writes (for a producer) / reads (for a consumer)
+ */
 public class BarrierAndLatchesMain {
 
     public static void main(String[] args){
@@ -58,6 +68,6 @@ public class BarrierAndLatchesMain {
         Date dateAfter = new Date();
         long difference = dateAfter.getTime() - dateBefore.getTime();
 
-        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should be empty; list.isEmpty? " + queue.isEmpty());
+        System.out.println("Needed " + difference + " ms to " + N*T + " add and consume concurrently from list. The list should now be empty -> isEmtpy? " + queue.isEmpty());
     }
 }

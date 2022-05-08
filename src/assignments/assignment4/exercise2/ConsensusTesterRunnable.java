@@ -2,12 +2,12 @@ package assignment4.exercise2;
 
 import java.util.concurrent.CyclicBarrier;
 
-public class LockConsensusTester implements Runnable {
+public class ConsensusTesterRunnable implements Runnable {
     IConsensus consensus;
     Integer threadId;
     CyclicBarrier barrier;
 
-    public LockConsensusTester(IConsensus consensus, Integer threadId, CyclicBarrier barrier) {
+    public ConsensusTesterRunnable(IConsensus consensus, Integer threadId, CyclicBarrier barrier) {
         this.consensus = consensus;
         this.threadId = threadId;
         this.barrier = barrier;
